@@ -1,10 +1,18 @@
 <h1>My lists</h1>
-<ul>
+
 <% @lists.each do |list|  %>
-  <li><%= link_to list.name , list_path(list) %></li>
+<div class="card-trip">
+  <div style="background-image: <%= cl_image_path(list.photo.key) if list.photo.attached? %>" class="image">
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= link_to list.name , list_path(list) %></h2>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <% end %>
-</ul>
 <%= link_to "Add a list", new_list_path %>
 
 
